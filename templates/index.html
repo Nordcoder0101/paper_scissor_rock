@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Flask Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href={{ url_for('static', filename='style.css') }} />
+</head>
+
+<body>
+  <img src={{url_for("static", filename= "../static/images/the_rock.jpeg")}}>
+  <img src={{url_for("static", filename= "../static/images/paper.jpeg")}}>
+  <img src={{url_for("static", filename= "../static/images/scissors.jpeg")}}>
+
+  <form method='post' action="/result">
+    <select name="choice">
+      <option value="rock">The Rock</option>
+      <option value="paper">Paper</option>
+      <option value="scissors">Scissors</option>
+    </select>
+    <input type="submit" value="create_result">
+  </form>  
+
+  <p>{{m1}}</p>
+  <p>{{m2}}</p>
+  <p>{{m3}}</p>
+
+  <table>
+    <tr>
+      <th>Status</th>
+      <th>Count</th>
+    </tr>
+    <tr>
+      <td>Winners</td>
+      <td>{{session['win_counter']}}</td>
+    </tr>
+     <tr>
+      <td>Losses</td>
+      <td>{{session['loss_counter']}}</td>
+    </tr>
+     <tr>
+      <td>Ties</td>
+      <td>{{session['tie_counter']}}</td>
+    </tr>
